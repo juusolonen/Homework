@@ -10,7 +10,17 @@ public class Program
         
         builder.Services.AddControllers();
         
+        builder.Services.AddOutputCache(opt =>
+        {
+            opt.AddPolicy(Constants.Cache.FiveSeconds, policyBuilder =>
+            {
+                policyBuilder.Expire(TimeSpan.FromSeconds(5));
+            });
+        });
+        
         builder.Services.AddOpenApiDocument();
+        
+        builder.Services.AddServices();
 
         builder.ConfigureLogging();
 
@@ -23,7 +33,8 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-
+        // NOTE to self: This must be after UseCORS
+        app.UseOutputCache();
         app.MapControllers();
 
         app.Run();
