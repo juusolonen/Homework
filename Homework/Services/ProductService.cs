@@ -1,12 +1,14 @@
+using Homework.HttpClients.Abstractions;
+using Homework.Models;
 using Homework.Services.Abstractions;
 
 namespace Homework.Services;
 
-public class ProductService(ILogger<ProductService> logger) : IProductService
+public class ProductService(ILogger<ProductService> logger, IDummyApiClient httpClient) : IProductService
 {
-    public string GetProducts()
+    public async Task<ProductsResponse> GetProducts()
     {
         logger.LogInformation("Productservice.GetProducts called");
-        return "This is a product service";
+        return await httpClient.GetProducts();
     }
 }

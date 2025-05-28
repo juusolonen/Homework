@@ -1,6 +1,8 @@
+using Homework.Models;
+
 namespace Homework.Services.Abstractions;
 
 public interface IProductService
 {
-    string GetProducts();
+    Task<ProductsResponse> GetProducts();
 }

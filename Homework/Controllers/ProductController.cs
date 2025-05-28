@@ -1,3 +1,4 @@
+using Homework.Models;
 using Homework.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
@@ -10,9 +11,10 @@ public class ProductController(ILogger<ProductController> logger, IProductServic
 {
     [HttpGet("Products")]
     [OutputCache(PolicyName = Constants.Cache.FiveSeconds)]
-    public string GetProducts()
+    [ProducesResponseType(typeof(ProductsResponse), StatusCodes.Status200OK)]
+    public async Task<ProductsResponse> GetProducts()
     {
         logger.LogInformation("GetProducts called");
-        return productService.GetProducts();
+        return await productService.GetProducts();
     }
 }

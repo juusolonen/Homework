@@ -6,4 +6,9 @@ public static class Constants
     {
         public const string FiveSeconds = "Expire5";
     }
+
+    public static class DummyApiPaths
+    {
+        public const string Products = "products";
+    }
 }
