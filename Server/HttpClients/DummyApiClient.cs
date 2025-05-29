@@ -1,10 +1,10 @@
 using System.Text.Json;
-using Homework.Configuration;
-using Homework.HttpClients.Abstractions;
-using Homework.Models;
 using Microsoft.Extensions.Options;
+using Server.Configuration;
+using Server.HttpClients.Abstractions;
+using Server.Models;
 
-namespace Homework.HttpClients;
+namespace Server.HttpClients;
 
 public class DummyApiClient : IDummyApiClient
 {

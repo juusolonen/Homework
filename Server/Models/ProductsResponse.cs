@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Homework.Models;
+namespace Server.Models;
 
 public record ProductsResponse
 {

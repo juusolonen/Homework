@@ -1,6 +1,6 @@
-using Homework.Models;
+using Server.Models;
 
-namespace Homework.Services.Abstractions;
+namespace Server.Services.Abstractions;
 
 public interface IProductService
 {

@@ -1,9 +1,9 @@
-using Homework.Models;
-using Homework.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
+using Server.Models;
+using Server.Services.Abstractions;
 
-namespace Homework.Controllers;
+namespace Server.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

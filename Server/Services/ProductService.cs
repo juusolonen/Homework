@@ -1,8 +1,8 @@
-using Homework.HttpClients.Abstractions;
-using Homework.Models;
-using Homework.Services.Abstractions;
+using Server.HttpClients.Abstractions;
+using Server.Models;
+using Server.Services.Abstractions;
 
-namespace Homework.Services;
+namespace Server.Services;
 
 public class ProductService(ILogger<ProductService> logger, IDummyApiClient httpClient) : IProductService
 {

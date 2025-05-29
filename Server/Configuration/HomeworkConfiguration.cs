@@ -1,4 +1,4 @@
-namespace Homework.Configuration;
+namespace Server.Configuration;
 
 public class HomeworkConfiguration
 {

@@ -1,4 +1,4 @@
-namespace Homework;
+namespace Server;
 
 public static class Constants
 {

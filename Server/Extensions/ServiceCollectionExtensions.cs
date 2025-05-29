@@ -1,7 +1,7 @@
-using Homework.Services;
-using Homework.Services.Abstractions;
+using Server.Services;
+using Server.Services.Abstractions;
 
-namespace Homework.Extensions;
+namespace Server.Extensions;
 
 public static class ServiceCollectionExtensions
 {

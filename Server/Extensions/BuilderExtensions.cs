@@ -1,7 +1,7 @@
-using Homework.Configuration;
 using NLog.Web;
+using Server.Configuration;
 
-namespace Homework.Extensions;
+namespace Server.Extensions;
 
 public static class BuilderExtensions
 {

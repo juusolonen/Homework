@@ -1,6 +1,6 @@
-using Homework.Models;
+using Server.Models;
 
-namespace Homework.HttpClients.Abstractions;
+namespace Server.HttpClients.Abstractions;
 
 public interface IDummyApiClient
 { 

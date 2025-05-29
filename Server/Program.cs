@@ -1,19 +1,20 @@
-using Homework.Extensions;
-using Homework.HttpClients;
-using Homework.HttpClients.Abstractions;
 using Polly;
 using Polly.Extensions.Http;
+using Server.Extensions;
+using Server.HttpClients;
+using Server.HttpClients.Abstractions;
 
-namespace Homework;
+namespace Server;
 
 public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        
         builder.AddConfiguration();
         builder.ConfigureLogging();
+        
+        builder.Services.AddProblemDetails();
 
         builder.Services.AddControllers();
         builder.Services.ConfigureOutPutCache();
@@ -26,8 +27,9 @@ public class Program
         builder.Services.AddServices();
 
         var app = builder.Build();
+        
+        app.ConfigureExceptionHandler();
 
-        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseDevelopmentServices();
