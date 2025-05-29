@@ -14,6 +14,14 @@ export default defineConfig({
     }
   },
   server: {
+    warmup: {
+      clientFiles: [
+        './src/App.tsx',
+        './src/main.tsx',
+        './src/Components/ProductListing.tsx',
+        './src/Components/ProductCard.tsx',
+      ]
+   },
     port: 5002,
     https: (() => {
       try {
@@ -46,6 +54,7 @@ export default defineConfig({
     }
   },
   build: {
+    modulePreload: true,
     outDir: '../wwwroot',
     emptyOutDir: true,
     rollupOptions: {
