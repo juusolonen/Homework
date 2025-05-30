@@ -11,4 +11,9 @@ public static class Constants
     {
         public const string Products = "products";
     }
+
+    public static class CORS
+    {
+        public const string DevPolicy = "_devPolicy";
+    }
 }

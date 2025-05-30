@@ -1,3 +1,7 @@
+.productCard {
+    min-height: 410px;    
+}
+
 .image {
     height: auto;
     width: auto;
@@ -5,6 +9,10 @@
     max-height: 200px;
 }
 
-.productCard {
- 
+.font12 {
+ font-size: 12px;
+}
+
+.card-title, .card-text {
+    min-height: 55px !important;
 }

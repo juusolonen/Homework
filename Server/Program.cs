@@ -14,8 +14,8 @@ public class Program
         builder.AddConfiguration();
         builder.ConfigureLogging();
         
+        builder.Services.AddCorsPolicies();
         builder.Services.AddProblemDetails();
-
         builder.Services.AddControllers();
         builder.Services.ConfigureOutPutCache();
         builder.Services.AddOpenApiDocument();

@@ -6,10 +6,3 @@
   text-align: center;
   height: 100vh;
 }
-
-.search-input{
-  @media screen and (max-width: 575px) {
-    min-width: 100% !important;
-    margin: auto;
-  }
-}
