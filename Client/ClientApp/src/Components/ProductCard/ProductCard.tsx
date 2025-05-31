@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import type {Product} from "../../Models/Product.ts";
 import {Utility} from "../../Utility.ts";
 import "./ProductCard.css";
@@ -8,6 +8,25 @@ interface ProductCardProps {
 }
 const ProductCard: React.FunctionComponent<ProductCardProps> = ({product: {thumbnail, title, price, description}}: ProductCardProps) => {
 
+    const [imageLoaded, setImageLoaded] = useState(false);
+    
+    useEffect(() => {
+        const image = new Image();
+        image.onload = () => setImageLoaded(true);
+        image.src = thumbnail;
+        
+        return () => {
+            image.onload = null;
+        }
+    }, [])
+    
+    
+    if (!imageLoaded) {
+        return (
+            <div className="card productCard mx-auto pg-placeholder"/>
+        )
+    }
+    
     return (
         <div className="card productCard mx-auto" >
             
@@ -15,7 +34,7 @@ const ProductCard: React.FunctionComponent<ProductCardProps> = ({product: {thumb
                  alt={title}
                  src={thumbnail}
             />
-            
+             
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 
