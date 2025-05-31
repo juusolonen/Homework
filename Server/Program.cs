@@ -13,8 +13,8 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
         builder.AddConfiguration();
         builder.ConfigureLogging();
+        builder.AddCorsPolicies();
         
-        builder.Services.AddCorsPolicies();
         builder.Services.AddProblemDetails();
         builder.Services.AddControllers();
         builder.Services.ConfigureOutPutCache();
@@ -34,9 +34,9 @@ public class Program
         {
             app.UseDevelopmentServices();
         }
-
+       
+        app.UseCors();
         app.UseHttpsRedirection();
-        // NOTE to self: This must be after UseCORS
         app.UseOutputCache();
         app.MapControllers();
 

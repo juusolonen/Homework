@@ -16,4 +16,19 @@ public static class BuilderExtensions
         builder.Services.AddOptions<HomeworkConfiguration.DummyApi>()
             .Bind(builder.Configuration.GetRequiredSection(nameof(HomeworkConfiguration.DummyApi)));
     }
+    
+    public static void AddCorsPolicies(this WebApplicationBuilder builder)
+    {
+        var clientUrl = builder.Configuration.GetValue<string>("ClientUrl");
+        ArgumentException.ThrowIfNullOrEmpty(clientUrl);
+        
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins(clientUrl)
+                    .WithMethods(["GET", "OPTIONS"]);
+            });
+        });
+    }
 }

@@ -18,8 +18,8 @@ export default defineConfig({
       clientFiles: [
         './src/App.tsx',
         './src/main.tsx',
-        './src/Components/ProductListing.tsx',
-        './src/Components/ProductCard.tsx',
+        './src/Components/ProductListing/ProductListing.tsx',
+        './src/Components/ProductCard/ProductCard.tsx',
       ]
    },
     port: 5002,
