@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from "react";
-import ProductCard from "../ProductCard/ProductCard.tsx";
-import type {Product} from "../../Models/Product.ts";
-import type {ProductsResponse} from "../../Models/ProductsResponse.ts";
-import "./ProductListing.css"
+import React, {useContext, useEffect} from "react";
+import {AppContext} from "../../Context/AppContext.ts";
 import {ApiProvider} from "../../Apiprovider.ts";
+import type {ProductsResponse} from "../../Models/ProductsResponse.ts";
+import type {Product} from "../../Models/Product.ts";
 import {Constants} from "../../Constants.ts";
+import ProductCard from "../ProductCard/ProductCard.tsx";
+import "./ProductListing.css"
+
 
 const ProductListing: React.FunctionComponent = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    
+    const {products, setProducts} = useContext(AppContext);
     
     useEffect(() => {
         (async () => {
@@ -16,7 +19,6 @@ const ProductListing: React.FunctionComponent = () => {
             setProducts(response?.products ?? []);
         })()
     }, [])
-    
     
     return (
         <div className="productListing min-vh-100 row row-cols-lg-4 row-cols-xl-6 row-cols-md-4 row-cols-sm-1 g-4 mt-3">
