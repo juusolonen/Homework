@@ -1,7 +1,8 @@
+import "./ProductCard.css";
 import React, {useEffect, useState} from "react";
 import type {Product} from "../../Models/Product.ts";
 import {Utility} from "../../Utility.ts";
-import "./ProductCard.css";
+import Card from "../Card/Card.tsx";
 
 interface ProductCardProps {
     product: Product;
@@ -20,33 +21,48 @@ const ProductCard: React.FunctionComponent<ProductCardProps> = ({product: {thumb
         }
     }, [])
     
-    
-    if (!imageLoaded) {
+    const renderContent = (): React.ReactNode => {
+         
+        if (!imageLoaded) {
+            return (
+                <div className="card productCard mx-auto pg-placeholder"/>
+            )
+        }
+        
         return (
-            <div className="card productCard mx-auto pg-placeholder"/>
+            <>
+                <img className="card-img-top mx-auto image"
+                     alt={title}
+                     src={thumbnail}
+                />
+
+                <div className="card-body">
+
+                    <h5 className="card-title">{title}</h5>
+
+                    <p className="card-text font12">
+                        {Utility.truncate(description,100)}
+                    </p>
+
+                    <p className="card-footer fw-semibold font12">
+                        {price}
+                    </p>
+                </div>
+            </>
+        )
+    }
+    const renderOnHover = (): React.ReactNode => {
+        return (
+            <div className="card productCard mx-auto pg-placeholder">
+                {description}
+            </div>    
         )
     }
     
     return (
-        <div className="card productCard mx-auto" >
-            
-            <img className="card-img-top mx-auto image"
-                 alt={title}
-                 src={thumbnail}
-            />
-             
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                
-                <p className="card-text font12">
-                    {Utility.truncate(description,100)}
-                </p>
-                
-                <p className="card-footer fw-semibold font12">
-                    {price}
-                </p>
-            </div>
-        </div>
+        <Card renderContent={() => renderContent()} 
+              renderOnHover={() => renderOnHover()}
+        />
     )
 }
 

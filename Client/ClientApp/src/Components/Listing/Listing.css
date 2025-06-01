@@ -1,4 +1,4 @@
-.productListing {
+.listing {
     width: 100%;
     border: 1px solid #dee2e6;
     border-radius: 10px;
@@ -7,7 +7,7 @@
     background-color: #e4e4e4;
 }
 
-.cardColumn {
+.listingColumn {
     max-height: 443.63px;
     @media screen and (max-width: 768px) {
         max-width: 50% !important;
@@ -17,4 +17,5 @@
         min-width: 67% !important;
         margin: auto;
     }
+
 }

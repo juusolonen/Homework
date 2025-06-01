@@ -3,10 +3,11 @@
 }
 
 .pg-placeholder {
+    display: flex;
+    justify-content: center;
     min-height: 443.63px;
     background-color: lightgray !important;
 }
-
 
 .image {
     height: auto;
@@ -24,6 +25,9 @@
 
 .font12 {
  font-size: 12px;
+}
+.font14 {
+ font-size: 14px;
 }
 
 .card-title, .card-text {
