@@ -7,7 +7,8 @@
     "predev": "node aspnetcore-https.js && node aspnetcore-react.js",
     "dev": "vite --port 5002 --open",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build": "vite build"
   },
   "dependencies": {
     "bootstrap": "^5.3.6",
