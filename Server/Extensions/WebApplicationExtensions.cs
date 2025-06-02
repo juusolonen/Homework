@@ -1,3 +1,5 @@
+using Polly.CircuitBreaker;
+
 namespace Server.Extensions;
 
 public static class WebApplicationExtensions
@@ -12,7 +14,11 @@ public static class WebApplicationExtensions
     {
         app.UseExceptionHandler(new ExceptionHandlerOptions
         {
-            StatusCodeSelector = ex => StatusCodes.Status500InternalServerError
+            StatusCodeSelector = ex => ex switch
+            {
+                BrokenCircuitException => StatusCodes.Status503ServiceUnavailable,
+              _ => StatusCodes.Status500InternalServerError  
+            } 
         });
     }
 }

@@ -6,10 +6,10 @@ using Server.Services.Abstractions;
 namespace Server.Controllers;
 
 [ApiController]
-[Route("api/")]
+[Route("/")]
 public class ProductController(ILogger<ProductController> logger, IProductService productService) : ControllerBase
 {
-    [HttpGet("AllProducts")]
+    [HttpGet("Products")]
     [OutputCache(PolicyName = Constants.Cache.FiveSeconds)]
     [ProducesResponseType(typeof(ProductsResponse), StatusCodes.Status200OK)]
     public async Task<ProductsResponse> GetProducts()
