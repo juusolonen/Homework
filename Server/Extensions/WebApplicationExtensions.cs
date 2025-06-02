@@ -7,7 +7,10 @@ public static class WebApplicationExtensions
     public static void UseDevelopmentServices(this IApplicationBuilder app)
     {
         app.UseOpenApi();
-        app.UseSwaggerUi();
+        app.UseSwaggerUi(o =>
+        {
+            o.DocumentTitle = "Product catalog";
+        });
     }
     
     public static void ConfigureExceptionHandler(this IApplicationBuilder app)

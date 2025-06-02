@@ -10,7 +10,7 @@ const Card: React.FunctionComponent<CardProps> = ({renderContent, renderOnHover}
     const [hover, setHover] = useState(false);
     
     return (
-        <div className="card genericCard mx-auto" 
+        <div className="card generic-card mx-auto" 
              onMouseEnter={() => setHover(true)}
              onMouseLeave={() => setHover(false)}
         >

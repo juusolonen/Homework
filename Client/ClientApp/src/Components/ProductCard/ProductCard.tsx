@@ -25,7 +25,7 @@ const ProductCard: React.FunctionComponent<ProductCardProps> = ({product: {thumb
          
         if (!imageLoaded) {
             return (
-                <div className="card productCard mx-auto pg-placeholder"/>
+                <div className="card product-card mx-auto pg-placeholder"/>
             )
         }
         
@@ -53,7 +53,7 @@ const ProductCard: React.FunctionComponent<ProductCardProps> = ({product: {thumb
     }
     const renderOnHover = (): React.ReactNode => {
         return (
-            <div className="card productCard mx-auto pg-placeholder">
+            <div className="card product-card mx-auto pg-placeholder">
                 {description}
             </div>    
         )

@@ -7,7 +7,7 @@
     background-color: #e4e4e4;
 }
 
-.listingColumn {
+.listing-column {
     max-height: 443.63px;
     @media screen and (max-width: 768px) {
         max-width: 50% !important;
