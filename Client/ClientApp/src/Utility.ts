@@ -20,4 +20,8 @@ export abstract class Utility {
             return false;
         });
     }
+    
+    public static debounce(func: Function, wait: number): void {
+        setTimeout(func, wait);
+    }
 }

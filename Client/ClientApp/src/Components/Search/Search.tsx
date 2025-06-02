@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import "./Search.css";
 import {AppProductContext} from "../../Context/AppProductContext.ts";
+import {Utility} from "../../Utility.ts";
 
 const Search: React.FunctionComponent = () => {
 
@@ -10,8 +11,8 @@ const Search: React.FunctionComponent = () => {
         if (filterText == text) {
             return;
         }
-        
-        setFilterText(text);
+    
+        Utility.debounce(() => setFilterText(text), 500);
     }
     
     return (
