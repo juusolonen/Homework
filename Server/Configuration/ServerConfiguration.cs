@@ -1,6 +1,6 @@
 namespace Server.Configuration;
 
-public class HomeworkConfiguration
+public static class ServerConfiguration
 {
     public class DummyApi
     {

@@ -2,7 +2,7 @@ using Server.Models;
 
 namespace Server.HttpClients.Abstractions;
 
-public interface IDummyApiClient
+public interface IDummyJsonApiClient
 { 
     Task<ProductsResponse> GetProducts();
 }

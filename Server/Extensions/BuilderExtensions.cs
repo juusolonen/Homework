@@ -13,13 +13,13 @@ public static class BuilderExtensions
     
     public static void AddConfiguration(this WebApplicationBuilder builder)
     {
-        builder.Services.AddOptions<HomeworkConfiguration.DummyApi>()
-            .Bind(builder.Configuration.GetRequiredSection(nameof(HomeworkConfiguration.DummyApi)));
+        builder.Services.AddOptions<ServerConfiguration.DummyApi>()
+            .Bind(builder.Configuration.GetRequiredSection(nameof(ServerConfiguration.DummyApi)));
     }
     
     public static void AddCorsPolicies(this WebApplicationBuilder builder)
     {
-        var clientUrl = builder.Configuration.GetValue<string>("ClientUrl");
+        var clientUrl = builder.Configuration.GetValue<string>(Constants.ClientUrl);
         ArgumentException.ThrowIfNullOrEmpty(clientUrl);
         
         builder.Services.AddCors(options =>

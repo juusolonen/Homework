@@ -4,7 +4,7 @@ using Server.Services.Abstractions;
 
 namespace Server.Services;
 
-public class ProductService(ILogger<ProductService> logger, IDummyApiClient httpClient) : IProductService
+public class ProductService(ILogger<ProductService> logger, IDummyJsonApiClient httpClient) : IProductService
 {
     public async Task<ProductsResponse> GetProducts()
     {

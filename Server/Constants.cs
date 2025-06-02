@@ -2,6 +2,8 @@ namespace Server;
 
 public static class Constants
 {
+    public static readonly string ClientUrl = "ClientUrl";
+        
     public static class Cache
     {
         public const string FiveSeconds = "Expire5";
@@ -11,9 +13,5 @@ public static class Constants
     {
         public const string Products = "products";
     }
-
-    public static class CORS
-    {
-        public const string DevPolicy = "_devPolicy";
-    }
+    
 }

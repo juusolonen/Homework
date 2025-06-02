@@ -6,12 +6,12 @@ using Server.Models;
 
 namespace Server.HttpClients;
 
-public class DummyApiClient : IDummyApiClient
+public class DummyJsonApiClient : IDummyJsonApiClient
 {
     private readonly HttpClient _httpClient;
-    private readonly ILogger<DummyApiClient> _logger;
+    private readonly ILogger<DummyJsonApiClient> _logger;
 
-    public DummyApiClient(HttpClient httpClient, IOptions<HomeworkConfiguration.DummyApi> config, ILogger<DummyApiClient> logger)
+    public DummyJsonApiClient(HttpClient httpClient, IOptions<ServerConfiguration.DummyApi> config, ILogger<DummyJsonApiClient> logger)
     {
         _httpClient = httpClient;
         _logger = logger;

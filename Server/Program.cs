@@ -20,7 +20,7 @@ public class Program
         builder.Services.ConfigureOutPutCache();
         builder.Services.AddOpenApiDocument();
         
-        builder.Services.AddHttpClient<IDummyApiClient, DummyApiClient>()
+        builder.Services.AddHttpClient<IDummyJsonApiClient, DummyJsonApiClient>()
             .AddPolicyHandler(GetRetryPolicy())
             .AddPolicyHandler(GetCircuitBreakerPolicy());
         
