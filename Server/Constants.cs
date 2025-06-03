@@ -13,5 +13,10 @@ public static class Constants
     {
         public const string Products = "products";
     }
-    
+
+    public static class HttpPolicies
+    {
+        public const int RetryCount = 2;
+        public const int CircuitBreakerLimit = 3;
+    }
 }

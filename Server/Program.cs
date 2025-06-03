@@ -19,10 +19,9 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.ConfigureOutPutCache();
         builder.Services.AddOpenApiDocument();
-        
+
         builder.Services.AddHttpClient<IDummyJsonApiClient, DummyJsonApiClient>()
-            .AddPolicyHandler(GetRetryPolicy())
-            .AddPolicyHandler(GetCircuitBreakerPolicy());
+            .AddPolicyHandlers();
         
         builder.Services.AddServices();
 
@@ -41,21 +40,5 @@ public class Program
         app.MapControllers();
 
         app.Run();
-    }
-    
-    static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
-    {
-        return HttpPolicyExtensions
-            .HandleTransientHttpError()
-            .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-            .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,
-                retryAttempt)));
-    }
-    
-    static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
-    {
-        return HttpPolicyExtensions
-            .HandleTransientHttpError()
-            .CircuitBreakerAsync(3, TimeSpan.FromSeconds(30));
     }
 }
