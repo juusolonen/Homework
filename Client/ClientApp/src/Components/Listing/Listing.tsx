@@ -24,7 +24,7 @@ const Listing = <TItem extends Listable>({items, filterText, filterKey, renderIt
     }
     
     return (
-        <div className="listing row row-cols-sm-1 row-cols-md-4 row-cols-lg-4 row-cols-xl-6 g-4 mt-3 min-vh-100">
+        <div className="listing row row-cols-sm-1 row-cols-md-4 row-cols-lg-4 row-cols-xl-6 g-4 mt-3 min-vh-100 align-content-start">
             { filteredItems.length > 0 &&
                filteredItems.map((item: TItem) => (
                    <div className="col shadow-sm px-1 mt-3 rounded listing-column"
