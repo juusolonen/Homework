@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using Server.HttpClients.Abstractions;
 using Server.Services;
@@ -9,20 +9,20 @@ namespace Tests;
 public class ProductServiceTests
 {
 
-    private readonly Mock<IDummyJsonApiClient> mockApiClient;
-    private readonly ProductService productService;
+    private readonly Mock<IDummyJsonApiClient> _mockApiClient;
+    private readonly ProductService _productService;
     
     public ProductServiceTests()
     {
-        var loggerMock = new Mock<ILogger<ProductService>>();
-        mockApiClient = ApiClientTestHelper.GetApiClient();
-        productService = new ProductService(loggerMock.Object, mockApiClient.Object);
+        var nullLogger = NullLogger<ProductService>.Instance;
+        _mockApiClient = ApiClientTestHelper.GetApiClient();
+        _productService = new ProductService(nullLogger, _mockApiClient.Object);
     }
 
     [Fact]
     public async void ShouldReturnProductsResponse()
     {
-        var result = await productService.GetProducts();
+        var result = await _productService.GetProducts();
         
         Assert.NotNull(result);
         Assert.Single(result.Products);
@@ -32,6 +32,6 @@ public class ProductServiceTests
         Assert.Equal(TestData.ProductsResponse.Products[0].Price, result.Products[0].Price);
         Assert.Equal(TestData.ProductsResponse.Products[0].ImageUrl, result.Products[0].ImageUrl);
 
-        mockApiClient.Verify(x => x.GetProducts(), Times.Once);
+        _mockApiClient.Verify(x => x.GetProducts(), Times.Once);
     }
 }
