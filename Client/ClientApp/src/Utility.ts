@@ -21,7 +21,7 @@ export abstract class Utility {
         });
     }
     
-    public static debounce(func: Function, wait: number): void {
-        setTimeout(func, wait);
+    public static debounce(func: Function, wait: number): NodeJS.Timeout {
+        return setTimeout(() => func(), wait);
     }
 }

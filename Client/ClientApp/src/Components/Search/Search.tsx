@@ -6,13 +6,18 @@ import {Utility} from "../../Utility.ts";
 const Search: React.FunctionComponent = () => {
 
     const {filterText, setFilterText} = useContext(AppProductContext);
+    let _searchTimeout: NodeJS.Timeout | null = null;
     
     const updateFilterText = (text: string) => {
         if (filterText == text) {
             return;
         }
-    
-        Utility.debounce(() => setFilterText(text), 500);
+        
+        if (_searchTimeout !== null) {
+            clearTimeout(_searchTimeout);
+        }
+        
+        _searchTimeout = Utility.debounce(() => setFilterText(text), 200);
     }
     
     return (
